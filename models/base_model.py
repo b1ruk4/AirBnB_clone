@@ -17,9 +17,20 @@ class BaseModel:
         """
         public instance attributes initialization
         """
-        self.id = str(uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
+        if kwargs:
+            for key, value in kwargs.items():
+                if key in ('created_at', 'updated_at'):
+                    setattr(self,
+                            key,
+                            datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f'))
+                elif key == '__class__':
+                    continue
+                else:
+                    setattr(self, key, value)
+        else:
+            self.id = str(uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
 
     def __str__(self):
         """
