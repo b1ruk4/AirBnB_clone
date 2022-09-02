@@ -2,6 +2,7 @@
 """all common attributes/methods for other classes"""
 from datetime import datetime
 from uuid import uuid4
+import models
 
 
 class BaseModel:
@@ -44,7 +45,9 @@ class BaseModel:
             updates the public instance attribute updated_at
             with the current datetime
         """
+        from models import storage
         self.updated_at = datetime.now()
+        storage.new(self)
 
     def to_dict(self):
         """
