@@ -1,11 +1,13 @@
 #!/usr/bin/python3
-"""module containing the State class"""
+"""module containing the Review class"""
 from models.base_model import BaseModel
 
 
-class State(BaseModel):
-    """State class inherits from BaseModel"""
-    name = ""
+class Review(BaseModel):
+    """Review class inherits from BaseModel"""
+    place_id = ""
+    user_id = ""
+    text = ""
 
     def __init__(self, *args, **kwargs):
         """initialize from the parent class"""
