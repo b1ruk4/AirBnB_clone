@@ -14,7 +14,7 @@ class BaseModel:
                 and it will be updated every time
     """
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """
         public instance attributes initialization
         """
