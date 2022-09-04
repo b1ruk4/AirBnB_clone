@@ -2,7 +2,6 @@
 """all common attributes/methods for other classes"""
 from datetime import datetime
 from uuid import uuid4
-import models
 
 
 class BaseModel:
@@ -14,7 +13,8 @@ class BaseModel:
                 when an instance is created
                 and it will be updated every time
     """
-    def __init__(self, *args, **kwargs):
+
+    def __init__(self):
         """
         public instance attributes initialization
         """
@@ -38,16 +38,15 @@ class BaseModel:
             print: [<class name>] (<self.id>) <self.__dict__>
         """
         return ("[{}] ({}) {}".format(self.__class__.__name__,
-                self.id, self.__dict__))
+                                      self.id, self.__dict__))
 
     def save(self):
         """
             updates the public instance attribute updated_at
             with the current datetime
         """
-        from models import storage
         self.updated_at = datetime.now()
-        storage.new(self)
+        # models.storage.()
 
     def to_dict(self):
         """
