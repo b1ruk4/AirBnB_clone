@@ -19,8 +19,8 @@ class BaseModel:
         public instance attributes initialization
         """
         self.id = str(uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
+        self.created_at = datetime.today()
+        self.updated_at = datetime.today()
 
         if kwargs:
             for key, value in kwargs.items():
@@ -47,7 +47,6 @@ class BaseModel:
             with the current datetime
         """
         self.updated_at = datetime.now()
-
         models.storage.save()
 
     def to_dict(self):
