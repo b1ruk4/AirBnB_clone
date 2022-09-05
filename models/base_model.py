@@ -4,6 +4,7 @@ from datetime import datetime
 from uuid import uuid4
 import models
 
+
 class BaseModel:
     """
     id: assign with an uuid when an instance is created.
