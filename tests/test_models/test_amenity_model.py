@@ -38,5 +38,5 @@ class TestAmenityModel(unittest.TestCase):
         self.assertFalse(self.new.save())
 
 
-    if __name__ == '__main__':
-        unittest.main()
+if __name__ == '__main__':
+    unittest.main()

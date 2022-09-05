@@ -37,5 +37,5 @@ class TestStateModel(unittest.TestCase):
         self.new.name = "My state Model"
         self.assertFalse(self.new.save())
 
-    if __name__ == '__main__':
-        unittest.main()
+if __name__ == '__main__':
+    unittest.main()
