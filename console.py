@@ -14,6 +14,7 @@ from models.base_model import BaseModel
 from shlex import split
 import re
 
+
 def command_adj(arg):
     """
     re - regular expression search
