@@ -48,7 +48,6 @@ class HBNBCommand(cmd.Cmd):
                'Review': Review
               }
 
-
     def do_create(self, arg):
         """
         Creates a new instance of BaseModel,
@@ -128,7 +127,7 @@ class HBNBCommand(cmd.Cmd):
         If no class is specified, displays all instantiated objects.
         """
         argl = command_adj(arg)
-        if len(argl) > 0 and argl[0] not in HBNBCommand.__classes:
+        if len(argl) > 0 and argl[0] not in HBNBCommand.classes:
             print("** class doesn't exist **")
         else:
             objl = []
@@ -161,7 +160,7 @@ class HBNBCommand(cmd.Cmd):
         if len(argl) == 0:
             print("** class name missing **")
             return False
-        if argl[0] not in HBNBCommand.__classes:
+        if argl[0] not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return False
         if len(argl) == 1:
@@ -220,5 +219,3 @@ class HBNBCommand(cmd.Cmd):
 
     def emptyline(self):
         pass
-
-
