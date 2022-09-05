@@ -17,7 +17,6 @@ class BaseModel:
         """
         public instance attributes initialization
         """
-    
         self.id = str(uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
@@ -35,7 +34,7 @@ class BaseModel:
             with the current datetime
         """
         self.updated_at = datetime.now()
-        #models.storage.()
+        # models.storage.()
 
     def to_dict(self):
         """
