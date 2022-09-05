@@ -2,7 +2,7 @@
 """
 This module contains a BaseModel class for the AirBnB project.
 """
-import uuid
+from uuid import uuid4
 from datetime import datetime
 import models
 
@@ -15,9 +15,9 @@ class BaseModel:
         """
         This method instantiates instance attributes.
         """
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.today()
-        self.updated_at = datetime.today()
+        self.id = str(uuid4())
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
 
         if kwargs:
             for key, value in kwargs.items():
@@ -44,7 +44,7 @@ class BaseModel:
         current datetime
         """
         self.updated_at = datetime.now()
-        models.storage.save()
+        #models.storage.save()
 
     def to_dict(self):
         """
