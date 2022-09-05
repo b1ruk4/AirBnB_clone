@@ -53,10 +53,12 @@ class FileStorage:
         """
         Deserializes the JSON file to __objects
         """
-        if exists(FileStorage.__file_path):
+        try:
             with open(FileStorage.__file_path) as fs:
                 dict_object = load(fs)
                 for obj in dict_object.values():
                     name = obj["__class__"]
                     del obj["__class__"]
                     self.new(eval(name)(**obj))
+        except FileNotFoundError:
+            return
